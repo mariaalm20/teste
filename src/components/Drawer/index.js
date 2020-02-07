@@ -1,10 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer'
-import { ThemeProvider } from '@material-ui/core/styles';
 
-import logo from '../Assets/dash.svg'
+import logo from '../../Assets/dash.svg'
+import avatar from '../../Assets/me.jpg'
 
+import NotificationsIcon from '@material-ui/icons/Notifications'
+import SearchIcon from '@material-ui/icons/Search'
 import {Settings} from '@material-ui/icons'
 import CardMembershipIcon from '@material-ui/icons/CardMembership'
 import ContactsIcon from '@material-ui/icons/Contacts'
@@ -14,31 +16,18 @@ import DonutSmallIcon from '@material-ui/icons/DonutSmall'
 import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects'
 
 import Avatar from '@material-ui/core/Avatar';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from '@material-ui/core/CssBaseline'
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+
 import Typography from '@material-ui/core/Typography'
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail'
-import { createMuiTheme } from '@material-ui/core/styles';
-
-const themecustom = createMuiTheme({
-  palette: {
-    primary: {
-      // light: will be calculated from palette.primary.main,
-      main: '#bbb',
-      // dark: will be calculated from palette.primary.main,
-      // contrastText: will be calculated to contrast with palette.primary.main
-    }},
-    typography: {
-    h1 : {
-      fontSize : 15
-    }
-  }
-  })
+import Box from '@material-ui/core/Box'
 
 
 
@@ -54,6 +43,10 @@ const useStyles = makeStyles(theme => ({
   appBar: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,
+    backgroundColor: '#fff',
+    color: '#000',
+    flex:1,
+    flexDirection: "column"
   },
   drawer: {
     width: drawerWidth,
@@ -61,6 +54,7 @@ const useStyles = makeStyles(theme => ({
   },
   drawerPaper: {
     width: drawerWidth,
+    backgroundColor: '#363740'
   },
   toolbar: theme.mixins.toolbar,
   content: {
@@ -68,14 +62,53 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.primary.dark,
     padding: theme.spacing(3),
   },
+  size: {
+    marginTop: 50,
+    marginLeft: 20,
+    fontSize: 20,
+    color : '#fff',
+    
+  },
+  listcolor: {
+    color: '#ffff'
+  },
+  positionItems : {
+    marginLeft: 740,
+    justifyContent: 'space-between',
+    color: '#bbb'
+  }
 }));
 
-export default function Dawer() {
+export default function Dawer({ navigation }) {
   const classes = useStyles()
 
   return (
     <div className={classes.root}>
       <CssBaseline />
+      <AppBar position="fixed" className={classes.appBar}>
+        <Toolbar >
+          <Typography variant="h6" noWrap>
+            Overview
+          </Typography>
+        
+      <Box display="flex" flexDirection="row" p={1} m={1} className = {classes.positionItems} >
+        <Box p={1}>
+        <SearchIcon />
+        </Box>
+        <Box p={1}>
+        <NotificationsIcon />
+        </Box>
+        <Box p={1} color = "#000" >
+        Maria Fernanda
+        </Box>
+        <Box p={1} >
+        <Avatar src = {avatar} alt = "Avatar" />
+        </Box>
+       </Box>
+    
+         
+        </Toolbar>
+      </AppBar>
       <Drawer
         className={classes.drawer}
         variant="permanent"
@@ -84,21 +117,23 @@ export default function Dawer() {
         }}
         anchor="left"
       >
-
-     <ThemeProvider theme={themecustom}>
-      <Typography  >
-      <img src= {logo} alt = 'Logo' />
+     <Box display="flex" flexDirection="row" p={1} m={1} className = {classes.size}>
+        <Box p={1}>
+        <img src = {logo} alt = "Logo"/>
+        </Box>
+        <Box p={1} >
         Dashboard Kit
-      </Typography>
-      </ThemeProvider>
+        </Box>
+    </Box>
+  
 
         <div className={classes.toolbar} />
 
-        <List>
+        <List className = {classes.listcolor}>
           {[ 'Oveview', 'Tickets', 'Ideas', 'Contacts', 'Agents', 'Articles'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{
-               index == 0 ? <DonutSmallIcon/> :
+            <ListItem button key={text}  onPress={() => navigation.navigate('List')}            >
+              <ListItemIcon className = {classes.listcolor}>{
+               index == 0 ? <DonutSmallIcon/>  :
                index == 1 ? <MailIcon /> :
                index == 2? <EmojiObjectsIcon /> :
                index == 3 ? <ContactsIcon />:
@@ -109,13 +144,13 @@ export default function Dawer() {
           ))}
         </List>
         <Divider />
-        <List>
+        <List className = {classes.listcolor}>
           {['Settings', 'Subscription'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{
+              <ListItemIcon className = {classes.listcolor}>{
                 index == 0 ?  <Settings/> : <CardMembershipIcon />
               }
-              </ListItemIcon>
+              </ListItemIcon >
               <ListItemText primary={text} />
             </ListItem>
           ))}
