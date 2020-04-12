@@ -1,6 +1,4 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer'
+import React from 'react'
 
 import logo from '../../Assets/dash.svg'
 import avatar from '../../Assets/me.jpg'
@@ -15,26 +13,21 @@ import DescriptionIcon from '@material-ui/icons/Description'
 import DonutSmallIcon from '@material-ui/icons/DonutSmall'
 import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects'
 
-import Avatar from '@material-ui/core/Avatar';
+import Avatar from '@material-ui/core/Avatar'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
 
+import Drawer from '@material-ui/core/Drawer'
 import Typography from '@material-ui/core/Typography'
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import List from '@material-ui/core/List'
+import Divider from '@material-ui/core/Divider'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
 import MailIcon from '@material-ui/icons/Mail'
 import Box from '@material-ui/core/Box'
 
-
-
-
-//themecustom = responsiveFontSizes(themecustom)
-
-//const drawerWidth = 300;
 
 import useStyles from './styles'
 

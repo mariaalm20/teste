@@ -1,14 +1,14 @@
+import React, {useState} from 'react'
 
 import Drawer from '../../components/Drawer'
-import React, {useState} from 'react';
-import Paper from '@material-ui/core/Paper';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
-import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper'
+import Table from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableContainer from '@material-ui/core/TableContainer'
+import TableHead from '@material-ui/core/TableHead'
+import TablePagination from '@material-ui/core/TablePagination'
+import TableRow from '@material-ui/core/TableRow'
 
 import useStyles from './styles'
 import avatar from '../../Assets/me.jpg'
@@ -33,7 +33,7 @@ const columns = [
 ];
 
 function createData(Ticket, Customer, date, priority) {
-  return { Ticket, Customer, date, priority};
+  return { Ticket, Customer, Date, Priority}
 }
 
 const rows = [
