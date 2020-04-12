@@ -1,7 +1,6 @@
 
 import Drawer from '../../components/Drawer'
 import React, {useState} from 'react';
-import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -11,7 +10,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 
-
+import useStyles from './styles'
+import avatar from '../../Assets/me.jpg'
 
 const columns = [
   { id: 'Ticket', label: 'Ticket details', minWidth: 170 },
@@ -37,27 +37,16 @@ function createData(Ticket, Customer, date, priority) {
 }
 
 const rows = [
-  createData('Contact Email Not Linked', 'Tom Cruise', 'May 26, 2019', 'HIGH'),
-  createData('Adding Images to Featured Posts', 'Matt Damon', 'May 26, 2019', 'LOW'),
-  createData('When will I be charged this month', 'Robert Downey', 'May 26, 2019', 'HIGH'),
-  createData('Payment not going through', 'Christian Bale', 'May 25, 2019', 'NORMAL'),
-  createData('Unable to add replies', 'Henry Cavil', 'May 25, 2019', 'HIGH'),
-  createData('Downtime since last week', 'Chris Evans','May 25, 2019', 'NORMAL'),
-  createData('Referral Bonus', 'Sam Smith', 'May 25, 2019', 'LOW'),
-  createData('How do I change my password?', 'Steve Rogers', 'May 24, 2019', 'NORMAL'),
+  createData(['Contact Email Not Linked','Update 1 day ago'], 'Tom Cruise', 'May 26, 2019', 'HIGH'),
+  createData(['Adding Images to Featured Posts', 'Update 1 day ago'], 'Matt Damon', 'May 26, 2019', 'LOW'),
+  createData(['When will I be charged this month', 'Update 1 day ago'], 'Robert Downey', 'May 26, 2019', 'HIGH'),
+  createData(['Payment not going through' , 'Update 2 day ago'], 'Christian Bale', 'May 25, 2019', 'NORMAL'),
+  createData(['Unable to add replies', 'Update 3 day ago'], 'Henry Cavil', 'May 25, 2019', 'HIGH'),
+  createData(['Downtime since last week' , 'Update 3 day ago'], 'Chris Evans','May 25, 2019', 'NORMAL'),
+  createData(['Referral Bonus' , 'Update 6 day ago'], 'Sam Smith', 'May 25, 2019', 'LOW'),
+  createData(['How do I change my password?' , 'Update last week'], 'Steve Rogers', 'May 24, 2019', 'NORMAL'),
   
 ];
-
-const useStyles = makeStyles({
-  root: {
-    width: '100%',
-    marginTop: 150,
-    marginLeft: 350,
-  },
-  container: {
-    maxHeight: 440,
-  },
-});
 
 export default function Lists() {
   const classes = useStyles()
@@ -100,8 +89,16 @@ export default function Lists() {
                   {columns.map(column => {
                     const value = row[column.id];
                     return (
-                      <TableCell key={column.id} align={column.align}>
-                        {column.format && typeof value === 'number' ? column.format(value) : value}
+                      <TableCell key={column.id} align={column.align} style = {{alignItems: 'center'}}>
+                        {column.id == 'Ticket' && 
+                          <img src = {avatar} style = {{
+                          width: 30,
+                          height: 30,
+                          borderRadius: 15,
+                          marginRight: 10,
+                        }}/>}
+                       
+                       {column.format && typeof value === 'number' ? column.format(value) : value}
                       </TableCell>
                     );
                   })}

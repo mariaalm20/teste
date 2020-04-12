@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -14,7 +14,7 @@ import Drawer from '../../components/Drawer'
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    marginTop:  90,
+    marginTop: 130,
     marginLeft: 160,
   },
   paper: {
@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     width: 200,
     paddingTop: 20,
     paddingLeft: 60
-     
+
   },
   control: {
     padding: theme.spacing(2),
@@ -39,61 +39,61 @@ export default function Homer() {
 
   return (
     <>
-    <Drawer />
-    <Grid container className={classes.root} spacing={2}>
-      <Grid item xs={12}>
-        <Grid container justify="center" spacing={spacing}>
-          {[0, 1, 2,3].map(value => (
-            <Grid key={value} item>
-              <Paper className={classes.paper}>
-                {
-                  value == 0 ? (
-                  <>
-                 <Typography variant="h7" noWrap >
-                 Unresolved
+      <Drawer />
+      <Grid container className={classes.root} spacing={2}>
+        <Grid item xs={12}>
+          <Grid container justify="center" spacing={spacing}>
+            {[0, 1, 2, 3].map(value => (
+              <Grid key={value} item>
+                <Paper className={classes.paper}>
+                  {
+                    value == 0 ? (
+                      <>
+                        <Typography variant="h7" noWrap >
+                          Unresolved
                  </Typography>
-                <Typography variant="h2" noWrap >
-                  60
+                        <Typography variant="h2" noWrap >
+                          60
                 </Typography>
-                 </> ):
-                  value == 1 ? (
-                    <>
-                   <Typography variant="h7" noWrap >
-                   Overdue
+                      </>) :
+                      value == 1 ? (
+                        <>
+                          <Typography variant="h7" noWrap >
+                            Overdue
                    </Typography>
-                  <Typography variant="h2" noWrap >
-                    16
+                          <Typography variant="h2" noWrap >
+                            16
                   </Typography>
-                   </> ):
-                  value == 2 ?  (
-                    <>
-                   <Typography variant="h7" noWrap >
-                   Open
+                        </>) :
+                        value == 2 ? (
+                          <>
+                            <Typography variant="h7" noWrap >
+                              Open
                    </Typography>
-                  <Typography variant="h2" noWrap >
-                    43
+                            <Typography variant="h2" noWrap >
+                              43
                   </Typography>
-                   </> ) :
-                   (
-                    <>
-                   <Typography variant="h7" noWrap >
-                   On hold
+                          </>) :
+                          (
+                            <>
+                              <Typography variant="h7" noWrap >
+                                On hold
                    </Typography>
-                  <Typography variant="h2" noWrap >
-                    64
+                              <Typography variant="h2" noWrap >
+                                64
                   </Typography>
-                   </> )
-                }
-              </Paper>
-            </Grid>
-          ))}
+                            </>)
+                  }
+                </Paper>
+              </Grid>
+            ))}
+          </Grid>
         </Grid>
       </Grid>
-    </Grid>
 
-   <Gridd />
-   <Tickets />
+      <Gridd />
+      <Tickets />
 
-  </>
+    </>
   )
 }

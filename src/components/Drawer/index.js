@@ -34,50 +34,10 @@ import Box from '@material-ui/core/Box'
 
 //themecustom = responsiveFontSizes(themecustom)
 
-const drawerWidth = 300;
+//const drawerWidth = 300;
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-  },
-  appBar: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    backgroundColor: '#fff',
-    color: '#000',
-    flex:1,
-    flexDirection: "column"
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-    backgroundColor: '#363740'
-  },
-  toolbar: theme.mixins.toolbar,
-  content: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.primary.dark,
-    padding: theme.spacing(3),
-  },
-  size: {
-    marginTop: 50,
-    marginLeft: 20,
-    fontSize: 20,
-    color : '#fff',
-    
-  },
-  listcolor: {
-    color: '#ffff'
-  },
-  positionItems : {
-    marginLeft: 740,
-    justifyContent: 'space-between',
-    color: '#bbb'
-  }
-}));
+import useStyles from './styles'
+
 
 export default function Dawer({ navigation }) {
   const classes = useStyles()
@@ -87,18 +47,19 @@ export default function Dawer({ navigation }) {
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar >
-          <Typography variant="h6" noWrap>
+          <Typography variant="h6" noWrap className = {classes.text}>
             Overview
           </Typography>
         
       <Box display="flex" flexDirection="row" p={1} m={1} className = {classes.positionItems} >
-        <Box p={1}>
+        <Box p={1} className = {classes.icon}>
         <SearchIcon />
         </Box>
-        <Box p={1}>
+        <Box p={1} className = {classes.icon}>
         <NotificationsIcon />
         </Box>
-        <Box p={1} color = "#000" >
+        <Divider orientation="vertical" />
+        <Box p={1} color = "#000" className = {classes.name}>
         Maria Fernanda
         </Box>
         <Box p={1} >
